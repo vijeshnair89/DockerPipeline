@@ -16,7 +16,7 @@ node('Node2'){
                 	sh 'mvn clean test'
             	}
 
-	
+	}
 	stage('Code Deployment'){
 		deploy adapters: [tomcat9(credentialsId: 'TomcatCreds', path: '', url: 'http://13.127.142.166:8080//')], contextPath: 'Contextapp', onFailure: false, war: 'target/*.war'
 	}
