@@ -5,7 +5,7 @@ node('Node2'){
 	}
 	stage('Build Automation'){
 		sh """
-  			sh 'apt install maven -y'
+  			apt install maven -y
 			ls -lart
 			mvn clean install
 			ls -lart target
