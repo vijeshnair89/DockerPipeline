@@ -6,11 +6,14 @@
  
 
   tasks:
+    - name: Update ubuntu and packages
+      apt: name="*" state=latest
+      
     - name: Install Java/Jdk
-      apt: name=openjdk-11-jre-headless status=started
+      apt: name=openjdk-11-jre-headless state=present
       
     - name: Install Tomcat9
-      apt: name=tomcat9 status=started
+      apt: name=tomcat9 state=present
       
     - name: Copy WAR to Remote server
       copy: src=target/{{ warName }} dest={{ warRemotePath }}/{{ warName }} owner=tomcat group=tomcat
