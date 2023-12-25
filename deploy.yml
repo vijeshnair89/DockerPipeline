@@ -3,12 +3,12 @@
   vars:
   - warName: java-example.war
   - warRemotePath: /var/lib/tomcat9/webapps
-  - path: /home/ubuntu/workspace
+ 
 
   tasks:
     - name: Install Tomcat9
       apt: name=tomcat9 status=started
       
     - name: Copy WAR to Remote server
-      copy: src={{ path }}/target/{{ warName }} dest={{ warRemotePath }}/{{ warName }} owner=tomcat group=tomcat
+      copy: src=target/{{ warName }} dest={{ warRemotePath }}/{{ warName }} owner=tomcat group=tomcat
    
